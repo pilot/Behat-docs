@@ -547,7 +547,7 @@ integers with the following context class code:
         /**
          * @Transform /^(\d+)$/
          */
-        public function castStringToNumber($string)
+        public static function castStringToNumber($string)
         {
             return intval($string);
         }
@@ -579,7 +579,7 @@ will create and return a new ``User`` object:
         /**
          * @Transform /^user (.*)$/
          */
-        public function castUsernameToUser($username)
+        public static function castUsernameToUser($username)
         {
             return new User($username);
         }
@@ -665,7 +665,7 @@ via a comma-delimited list of the column headers prefixed with ``table:``:
         /**
          * @Transform /^table:name,followers$/
          */
-        public function castUsersTable(TableNode $usersTable)
+        public static function castUsersTable(TableNode $usersTable)
         {
             $users = array();
             foreach ($usersTable->getHash() as $userHash) {
